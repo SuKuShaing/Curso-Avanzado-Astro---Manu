@@ -1,48 +1,41 @@
-# Astro Starter Kit: Basics
+# Avanzado de Astro
 
+## Estructura del Md para los blogs
+Al principio debe tener este formato:
+--- // los 3 guiones son los de Astro
+// Aquí colocar las especificaciones del blog
+propiedad: "valor" // no es necesario colocar " , " al final puesto que no es un objeto
+
+title: "my first post"
+pubDate: "Jul 08 2022"
+heroImage: "https://generated.vusercontent.net/placeholder.svg"
+tags: ["AI", "Dev"]
+--- //
+Después de los 3 guiones se coloca el contenido del blog en markdown.
+
+
+## Configurar el Ts para cargar los blogs
+Crear un archivo llamado config.ts dentro de la carpeta content y agregar el siguiente código.
+Dentro del esquema de z.object se deben colocar las propiedades que se definieron en el archivo .md con su respectivo tipo de dato.
+
+```ts
+import { defineCollection, z } from "astro:content";
+
+const blog = defineCollection({
+    type: "content",
+    schema: z.object({
+        heroImage: z.string(),
+        title: z.string(),
+        pubDate: z.string(),
+        tags: z.array(z.string()),
+    })
+});
+
+export const collections = { blog };
+```
+
+## Generar los tipos
 ```sh
-npm create astro@latest -- --template basics
+npx astro sync
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+esto generará los tipos del archivo config.ts, no tengo idea de donde los guarda o coloca
