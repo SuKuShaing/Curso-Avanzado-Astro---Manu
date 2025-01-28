@@ -1,0 +1,15 @@
+---
+import type { GetStaticPaths } from "astro"; // esto es para tener el autocompletado de TypeScript
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async () => {
+	const posts = await getCollection("blog");
+
+	return posts.map((post) => ({ params: { slug: post.slug }, props: post }));
+
+}) satisfies GetStaticPaths; // el "satisfies GetStaticPaths" es para tener el autocompletado de TypeScript
+
+const { body, data: { heroImage, pubDate, tags, title } } = Astro.props;
+---
+
+<div>¡{title}!</div>
