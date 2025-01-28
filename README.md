@@ -1,5 +1,9 @@
 # Avanzado de Astro
 
+Siguiendo el tutorial de Curso De Astro Avanzado 2024 de Manu Martín.
+https://youtu.be/oiuTKQajb7o?si=fVGYRmVeNmzPmVuS
+
+
 ## Estructura del Md para los blogs
 Al principio debe tener este formato:
 --- // los 3 guiones son los de Astro
