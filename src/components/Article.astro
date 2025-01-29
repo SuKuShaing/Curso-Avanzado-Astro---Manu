@@ -2,15 +2,15 @@
 import FormattedDate from './FormattedDate.astro';
 
 import { type CollectionEntry } from 'astro:content';
-type Props = CollectionEntry<"blog">["data"]; // no defino las Props, con comandos de Ts se extraen de donde ya están definidas
+type Props = CollectionEntry<"blog">["data"] & { slug: string }; // no defino las Props, con comandos de Ts se extraen de donde ya están definidas
 
-const { heroImage, title, tags, pubDate } = Astro.props;
+const { heroImage, title, tags, pubDate, slug } = Astro.props;
 ---
 
 <li class="border-extra-soft-white text-soft-white hover:bg-soft-light rounded-xl border transition-colors duration-200">
     <div>
         <article>
-            <a>
+            <a href={`/blog/${slug}`}>
                 <img
                     src={heroImage}
                     alt=""

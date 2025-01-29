@@ -14,7 +14,7 @@ const posts = (await getCollection("blog")).sort(
 	<div class="max-w-content-size mx-auto w-full">
 		<section class="mt-6 w-full">
 			<ul class="space-y-8">
-				{posts.map((post) => <Article {...post.data} />)}
+				{posts.map((post) => <Article {...post.data} slug={post.slug} />)}
 			</ul>
 		</section>
 	</div>
