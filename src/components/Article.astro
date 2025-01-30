@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
 
 import { type CollectionEntry } from 'astro:content';
+import Tag from './Tag.astro';
 type Props = CollectionEntry<"blog">["data"] & { slug: string }; // no defino las Props, con comandos de Ts se extraen de donde ya están definidas
 
 const { heroImage, title, tags, pubDate, slug } = Astro.props;
@@ -24,9 +25,7 @@ const { heroImage, title, tags, pubDate, slug } = Astro.props;
                         <h4 class="text-3xl font-bold">{title}</h4>
                         <div class="flex gap-2">
                             {tags.map((tag) => (
-                                <span class="border-extra-soft-white mt-4 self-start rounded border px-2 py-1 text-zinc-400">
-                                    {tag}
-                                </span>
+                                <Tag tag={tag} />
                             ))}
                         </div>
                         <FormattedDate date={pubDate} />
