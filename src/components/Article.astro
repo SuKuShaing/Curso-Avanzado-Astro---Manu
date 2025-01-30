@@ -9,7 +9,7 @@ const { heroImage, title, tags, pubDate, slug } = Astro.props;
 ---
 
 <li class="border-extra-soft-white text-soft-white hover:bg-soft-light rounded-xl border transition-colors duration-200">
-    <div>
+    <div transition:name={`title-${title}`}>
         <article>
             <a href={`/blog/${slug}`}>
                 <Image

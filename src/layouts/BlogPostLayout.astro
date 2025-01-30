@@ -28,7 +28,7 @@ const { heroImage, pubDate, tags, title } = Astro.props;
 
 			Back to blog
 		</a>
-		<div class="border-extra-soft-white w-full max-w-[none] rounded-xl border">
+		<div transition:name={`title-${title}`} class="border-extra-soft-white w-full max-w-[none] rounded-xl border">
 			<article>
 				<Image
 					class="w-full rounded-t-xl object-cover"
