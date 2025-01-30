@@ -1,7 +1,7 @@
 ---
 title: "my third post"
 pubDate: "may 01 2023"
-heroImage: "/assets/fondo-textura-degradado-granulad.jpg"
+heroImage: "/assets/fondo-3.jpg"
 tags: ["AI", "JavaScript", "Framework"]
 ---
 

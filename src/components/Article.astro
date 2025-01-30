@@ -1,37 +1,40 @@
 ---
-import { Image } from 'astro:assets';
-import FormattedDate from './FormattedDate.astro';
+import { Image } from "astro:assets";
+import FormattedDate from "./FormattedDate.astro";
 
-import { type CollectionEntry } from 'astro:content';
-import Tag from './Tag.astro';
+import { type CollectionEntry } from "astro:content";
+import Tag from "./Tag.astro";
 type Props = CollectionEntry<"blog">["data"] & { slug: string }; // no defino las Props, con comandos de Ts se extraen de donde ya están definidas
 
 const { heroImage, title, tags, pubDate, slug } = Astro.props;
 ---
 
-<li class="border-extra-soft-white text-soft-white hover:bg-soft-light rounded-xl border transition-colors duration-200">
-    <div transition:name={`title-${title}`}>
-        <article>
-            <a href={`/blog/${slug}`}>
-                <Image
-                    src={heroImage}
-                    alt=""
-                    width="1020"
-                    height="520"
-                    class="aspect-[16/5] rounded-t-xl object-cover"
-                />
-                <div class="w-full">
-                    <div class="flex flex-col px-12 py-4">
-                        <h4 class="text-3xl font-bold">{title}</h4>
-                        <div class="flex gap-2">
-                            {tags.map((tag) => (
-                                <Tag tag={tag} />
-                            ))}
-                        </div>
-                        <FormattedDate date={pubDate} />
-                    </div>
-                </div>
-            </a>
-        </article>
-    </div>
+<li
+	class="border-extra-soft-white text-soft-white hover:bg-soft-light rounded-xl border transition-colors duration-200"
+>
+	<div transition:name={`article-${title}`}>
+		<article>
+			<a href={`/blog/${slug}`}>
+				<Image
+					transition:name={`image-${heroImage}`}
+					src={heroImage}
+					alt=""
+					width="1020"
+					height="520"
+					class="aspect-[16/5] rounded-t-xl object-cover"
+				/>
+				<div class="w-full">
+					<div class="flex flex-col px-12 py-4">
+						<h4 transition:name={`title-${title}`} class="text-3xl font-bold">
+							{title}
+						</h4>
+						<div class="flex gap-2">
+							{tags.map((tag) => <Tag tag={tag} />)}
+						</div>
+						<FormattedDate date={pubDate} />
+					</div>
+				</div>
+			</a>
+		</article>
+	</div>
 </li>
