@@ -2,7 +2,7 @@
 title: "my second post"
 pubDate: "Jul 01 2022"
 heroImage: "/assets/blog-placeholder-2.jpg"
-tags: ["HTML", "JavaScrip"]
+tags: ["HTML", "JavaScript"]
 ---
 
 # Titulo principal
