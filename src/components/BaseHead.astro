@@ -4,8 +4,8 @@ import "@/styles/global.css";
 
 interface Props {
     title: string;
-    description: string;
-    image: string;
+    description?: string;
+    image?: string;
 }
 
 const { title, description="Nuestro blog de Astro", image="/assets/blog-placeholder-1.jpg" } = Astro.props;

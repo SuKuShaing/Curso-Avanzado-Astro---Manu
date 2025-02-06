@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site:"https://localhost:4321",
+  site:"https://curso-avanzado-astro-manu.vercel.app",
   integrations: [tailwind(), icon({
     include: {
       lucide: ["*"]

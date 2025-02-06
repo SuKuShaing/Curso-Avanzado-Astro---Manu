@@ -1,5 +1,9 @@
 # Avanzado de Astro
 
+## Web disponible aquí
+https://curso-avanzado-astro-manu.vercel.app/blog
+
+
 Siguiendo el tutorial de Curso De Astro Avanzado 2024 de Manu Martín.
 https://youtu.be/oiuTKQajb7o?si=fVGYRmVeNmzPmVuS
 
