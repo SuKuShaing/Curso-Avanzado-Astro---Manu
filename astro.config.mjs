@@ -5,6 +5,8 @@ import tailwind from '@astrojs/tailwind';
 
 import icon from 'astro-icon';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   site:"https://localhost:4321",
@@ -12,5 +14,5 @@ export default defineConfig({
     include: {
       lucide: ["*"]
     }
-  })]
+  }), sitemap()]
 });
